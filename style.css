@@ -1,222 +1,655 @@
-*{ box-sizing: border-box; 
+* {
+    box-sizing: border-box;
 }
-body { margin: 0; 
-    min-height: 100vh; 
-    background: radial-gradient(circle at top left, #fff5f8, transparent 35%), 
-    linear-gradient(135deg, #ffe4ec, #ffd6e8, #f8d8ff); 
-    font-family: Arial, sans-serif; 
-    color: #4a2633; 
-    overflow-x: hidden; 
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at top left, #fff5f8, transparent 35%),
+        linear-gradient(135deg, #ffe4ec, #ffd6e8, #f8d8ff);
+
+    font-family: Arial, sans-serif;
+    color: #4a2633;
+
+    overflow-x: hidden;
 }
-.birthday-container { 
-    position: relative; 
-    z-index: 2;
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 70px 20px;
-    text-align: center;
-}
-.small-text { 
-    font-size: 1rem; 
-    letter-spacing: 3px; 
-    color: #a85c78; 
-    margin-bottom: 10px; 
-}
-h1 { 
-    margin: 0; 
-    font-family: "Courier New", monospace; 
-    font-size: clamp(2.5rem, 7vw, 5rem);
-    color: #8f3153;
-    text-shadow: 2px 2px 0 white, 4px 4px 15px rgba(255, 255, 255, 0.8);
-    animation: titleGlow 3s ease-in-out infinite; 
-}
-.subtitle { 
-    font-size: 1.2rem; 
-    margin-top: 15px; 
-    color: #744052; 
-}
-audio { 
-    display: block; 
-    width: 280px; 
-    max-width: 90%; 
-    margin: 30px auto; 
-    border-radius: 30px; 
-}
-.photos { 
-    margin-top: 70px; 
-}
-.photos h2, 
-.message-card h2 { 
-    font-family: "Courier New", monospace; 
-    color: #8f3153; font-size: 2rem; 
-}
-.photo-grid { 
-    display: grid; 
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 25px; margin-top: 30px; 
-}
-.photo-card { 
-    background: white; 
-    padding: 10px 10px 20px; 
-    border-radius: 8px; 
-    box-shadow: 0 10px 25px rgba(120, 50, 80, 0.15); 
-    transition: transform 0.4s ease; 
-}
-.photo-card:nth-child(odd) { 
-    transform: rotate(-3deg); 
-}
-.photo-card:hover { 
-    transform: translateY(-10px) rotate(0deg); 
-}
-.photo-card img { 
-    width: 100%; 
-    height: 230px; 
-    object-fit: cover; 
-    border-radius: 5px; 
-}
-.photo-card p { 
-    margin: 15px 5px 0; 
-    font-family: "Courier New", monospace; 
-    font-size: 0.9rem; color: #754052; 
-}
-.message-card { 
-    max-width: 750px; 
-    margin: 80px auto; 
-    padding: 45px 40px; 
-    background: rgba(255, 255, 255, 0.72); 
-    border: 1px solid rgba(255, 255, 255, 0.8); 
-    border-radius: 25px; 
-    box-shadow: 0 20px 50px rgba(110, 40, 70, 0.15); 
-    backdrop-filter: blur(10px); 
-}
-.heart-icon { 
-    font-size: 3rem; 
-    color: #d94f78; 
-    animation: heartbeat 1.5s infinite;
-}
-.message-card p { 
-    font-size: 1.05rem; 
-    line-height: 1.8; 
-}
-.surprise-section { 
-    margin: 70px 0; 
-}
-#surpriseButton { 
-    border: none; 
-    padding: 16px 30px; 
-    border-radius: 50px;
-    background: linear-gradient( 135deg, #ff5c8a, #d94f78 );
-    color: white; 
-    font-size: 1rem; 
-    font-weight: bold; 
-    cursor: pointer;
-    box-shadow: 0 10px 25px rgba(190, 60, 100, 0.3); 
-    transition: all 0.3s ease; 
-}
-#surpriseButton:hover { transform: translateY(-4px) scale(1.03); 
-    box-shadow: 0 15px 30px rgba(190, 60, 100, 0.4); 
-}
-#surpriseMessage { 
-    margin-top: 25px; 
-    font-size: 1.3rem; 
-    color: #8f3153; 
-    animation: fadeIn 1s ease; 
-}
-.hidden { 
-    display: none; 
-}
-.balloons { 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    overflow: hidden; 
-    pointer-events: none; 
-    z-index: 1; 
-}
-.balloon { 
-    position: absolute; 
-    bottom: -150px; 
-    width: 60px; 
-    height: 80px; 
-    border-radius: 50%; 
-    animation: float 12s infinite ease-in; 
-}
-.balloon::after { 
-    content: ""; 
-    position: absolute; 
-    left: 50%; top: 80px; 
-    width: 2px; 
-    height: 80px; 
-    background: #555; 
-}
-.balloon1 { 
-    left: 10%; 
-    background: #ff4d6d; 
-    animation-duration: 10s; 
-}
-.balloon2 {
-    left: 30%;
-    background: #4dabf7;
-    animation-duration: 12s;
-    animation-delay: 2s;
-}
-.balloon3 {
-    left: 50%;
-    background: #ffd43b;
-    animation-duration: 9s;
-    animation-delay: 1s;
-}
-.balloon4 {
-    left: 70%;
-    background: #69db7c;
-    animation-duration: 11s;
-    animation-delay: 3s;
-}
-.balloon5 {
-    left: 90%;
-    background: #cc5de8;
-    animation-duration: 13s;
-    animation-delay: 2s;
-}
-.hearts span {
+
+
+/* =========================
+   OPENING SCREEN
+========================= */
+
+#introScreen {
     position: fixed;
-    bottom: -50px;
-    font-size: 25px;
-    animation: hearts 10s linear infinite;
-    opacity: 0.7;
-    z-index: 1;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at top, #fff5f8, transparent 40%),
+        linear-gradient(135deg, #ffd6e8, #f8d8ff);
+
+    z-index: 9999;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+.intro-content {
+    width: 90%;
+    max-width: 500px;
+
+    padding: 50px 30px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(110, 40, 70, 0.18);
+
+    backdrop-filter: blur(15px);
+
+    animation: introAppear 1.2s ease;
+}
+
+.intro-gift {
+    font-size: 4rem;
+
+    margin-bottom: 20px;
+
+    animation: giftFloat 2s ease-in-out infinite;
+}
+
+.intro-small {
+    margin: 0 0 10px;
+
+    font-size: 0.95rem;
+
+    letter-spacing: 3px;
+
+    color: #a85c78;
+
+    text-transform: uppercase;
+}
+
+.intro-title {
+    margin: 10px 0;
+
+    font-family: "Courier New", monospace;
+
+    font-size: clamp(2.5rem, 10vw, 4rem);
+
+    color: #8f3153;
+
+    text-shadow:
+        2px 2px 0 white,
+        4px 4px 15px rgba(255, 255, 255, 0.8);
+}
+
+.intro-text {
+    font-size: 1.1rem;
+
+    color: #744052;
+
+    margin: 15px 0 30px;
+}
+
+#enterButton {
+    border: none;
+
+    padding: 16px 32px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(135deg, #ff5c8a, #d94f78);
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(190, 60, 100, 0.3);
+
+    transition: all 0.3s ease;
+}
+
+#enterButton:hover {
+    transform: translateY(-4px) scale(1.04);
+
+    box-shadow:
+        0 15px 30px rgba(190, 60, 100, 0.4);
+}
+
+#enterButton:active {
+    transform: scale(0.96);
+}
+
+.intro-hidden {
+    opacity: 0;
+    visibility: hidden;
     pointer-events: none;
 }
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.birthday-container {
+    position: relative;
+
+    z-index: 2;
+
+    width: 90%;
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 70px 20px;
+
+    text-align: center;
+}
+
+.small-text {
+    font-size: 1rem;
+
+    letter-spacing: 3px;
+
+    color: #a85c78;
+
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin: 0;
+
+    font-family: "Courier New", monospace;
+
+    font-size: clamp(2.5rem, 7vw, 5rem);
+
+    color: #8f3153;
+
+    text-shadow:
+        2px 2px 0 white,
+        4px 4px 15px rgba(255, 255, 255, 0.8);
+
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+
+    margin-top: 15px;
+
+    color: #744052;
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+audio {
+    display: block;
+
+    width: 280px;
+
+    max-width: 90%;
+
+    margin: 30px auto;
+
+    border-radius: 30px;
+}
+
+
+/* =========================
+   PHOTOS
+========================= */
+
+.photos {
+    margin-top: 70px;
+}
+
+.photos h2,
+.message-card h2 {
+    font-family: "Courier New", monospace;
+
+    color: #8f3153;
+
+    font-size: 2rem;
+}
+
+.photo-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+
+    margin-top: 30px;
+}
+
+.photo-card {
+    background: white;
+
+    padding: 10px 10px 20px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 25px rgba(120, 50, 80, 0.15);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.photo-card:nth-child(odd) {
+    transform: rotate(-3deg);
+}
+
+.photo-card:nth-child(even) {
+    transform: rotate(3deg);
+}
+
+.photo-card:hover {
+    transform:
+        translateY(-10px)
+        rotate(0deg)
+        scale(1.02);
+
+    box-shadow:
+        0 20px 35px rgba(120, 50, 80, 0.22);
+}
+
+.photo-card img {
+    width: 100%;
+
+    height: 230px;
+
+    object-fit: cover;
+
+    border-radius: 7px;
+
+    display: block;
+}
+
+.photo-card p {
+    margin: 15px 5px 0;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 0.9rem;
+
+    color: #754052;
+}
+
+
+/* =========================
+   MESSAGE CARD
+========================= */
+
+.message-card {
+    max-width: 750px;
+
+    margin: 80px auto;
+
+    padding: 45px 40px;
+
+    background:
+        rgba(255, 255, 255, 0.72);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 50px rgba(110, 40, 70, 0.15);
+
+    backdrop-filter: blur(10px);
+}
+
+.heart-icon {
+    font-size: 3rem;
+
+    color: #d94f78;
+
+    animation:
+        heartbeat 1.5s infinite;
+}
+
+.message-card p {
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+}
+
+.signature {
+    margin-top: 30px;
+
+    font-family: "Courier New", monospace;
+
+    color: #8f3153;
+}
+
+
+/* =========================
+   SURPRISE
+========================= */
+
+.surprise-section {
+    margin: 70px 0;
+}
+
+#surpriseButton {
+    border: none;
+
+    padding: 16px 30px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(135deg, #ff5c8a, #d94f78);
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(190, 60, 100, 0.3);
+
+    transition:
+        all 0.3s ease;
+}
+
+#surpriseButton:hover {
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+        0 15px 30px rgba(190, 60, 100, 0.4);
+}
+
+#surpriseButton:disabled {
+    cursor: default;
+}
+
+#surpriseMessage {
+    margin-top: 25px;
+
+    font-size: 1.3rem;
+
+    color: #8f3153;
+
+    animation:
+        fadeIn 1s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================
+   BALLOONS
+========================= */
+
+.balloons {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.balloon {
+    position: absolute;
+
+    bottom: -150px;
+
+    width: 60px;
+    height: 80px;
+
+    border-radius: 50%;
+
+    animation:
+        float 12s infinite ease-in;
+}
+
+.balloon::before {
+    content: "";
+
+    position: absolute;
+
+    bottom: -5px;
+    left: 50%;
+
+    width: 0;
+    height: 0;
+
+    transform: translateX(-50%);
+
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid currentColor;
+}
+
+.balloon::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 80px;
+
+    width: 2px;
+    height: 80px;
+
+    background: #555;
+}
+
+.balloon1 {
+    left: 10%;
+
+    background: #ff4d6d;
+
+    animation-duration: 10s;
+}
+
+.balloon2 {
+    left: 30%;
+
+    background: #4dabf7;
+
+    animation-duration: 12s;
+
+    animation-delay: 2s;
+}
+
+.balloon3 {
+    left: 50%;
+
+    background: #ffd43b;
+
+    animation-duration: 9s;
+
+    animation-delay: 1s;
+}
+
+.balloon4 {
+    left: 70%;
+
+    background: #69db7c;
+
+    animation-duration: 11s;
+
+    animation-delay: 3s;
+}
+
+.balloon5 {
+    left: 90%;
+
+    background: #cc5de8;
+
+    animation-duration: 13s;
+
+    animation-delay: 2s;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts span {
+    position: fixed;
+
+    bottom: -50px;
+
+    font-size: 25px;
+
+    animation:
+        hearts 10s linear infinite;
+
+    opacity: 0.7;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
 .hearts span:nth-child(1) {
     left: 15%;
     animation-delay: 1s;
 }
+
 .hearts span:nth-child(2) {
     left: 30%;
     animation-delay: 4s;
 }
+
 .hearts span:nth-child(3) {
     left: 45%;
     animation-delay: 2s;
 }
+
 .hearts span:nth-child(4) {
     left: 60%;
     animation-delay: 6s;
 }
+
 .hearts span:nth-child(5) {
     left: 75%;
     animation-delay: 3s;
 }
+
 .hearts span:nth-child(6) {
     left: 90%;
     animation-delay: 7s;
 }
+
+
+/* =========================
+   SURPRISE ANIMATIONS
+========================= */
+
+.surprise-heart {
+    position: fixed;
+
+    top: -50px;
+
+    z-index: 9998;
+
+    pointer-events: none;
+
+    animation:
+        surpriseFall linear forwards;
+}
+
+.confetti {
+    position: fixed;
+
+    top: -20px;
+
+    width: 8px;
+    height: 14px;
+
+    z-index: 9998;
+
+    pointer-events: none;
+
+    animation:
+        surpriseFall linear forwards;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes introAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+@keyframes giftFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(3deg);
+    }
+
+}
+
 @keyframes float {
+
     0% {
-        transform: translateY(0) translateX(0);
+        transform:
+            translateY(0)
+            translateX(0);
+
         opacity: 0;
     }
 
@@ -225,17 +658,28 @@ audio {
     }
 
     50% {
-        transform: translateY(-50vh) translateX(20px);
+        transform:
+            translateY(-50vh)
+            translateX(20px);
     }
 
     100% {
-        transform: translateY(-120vh) translateX(-20px);
+        transform:
+            translateY(-120vh)
+            translateX(-20px);
+
         opacity: 0;
     }
+
 }
+
 @keyframes hearts {
+
     0% {
-        transform: translateY(0) rotate(0deg);
+        transform:
+            translateY(0)
+            rotate(0deg);
+
         opacity: 0;
     }
 
@@ -244,11 +688,17 @@ audio {
     }
 
     100% {
-        transform: translateY(-110vh) rotate(360deg);
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
         opacity: 0;
     }
+
 }
+
 @keyframes heartbeat {
+
     0%, 100% {
         transform: scale(1);
     }
@@ -256,8 +706,11 @@ audio {
     50% {
         transform: scale(1.2);
     }
+
 }
+
 @keyframes titleGlow {
+
     0%, 100% {
         transform: scale(1);
     }
@@ -265,26 +718,90 @@ audio {
     50% {
         transform: scale(1.02);
     }
+
 }
+
 @keyframes fadeIn {
+
     from {
         opacity: 0;
-        transform: translateY(15px);
+
+        transform:
+            translateY(15px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
+
 }
+
+@keyframes surpriseFall {
+
+    0% {
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================
+   TABLET / MOBILE
+========================= */
+
 @media (max-width: 700px) {
 
     .birthday-container {
-        padding: 50px 15px;
+        width: 94%;
+
+        padding:
+            50px 10px;
     }
-      .photo-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+    .intro-content {
+        width: 90%;
+
+        padding:
+            40px 20px;
+    }
+
+    .intro-gift {
+        font-size: 3.5rem;
+    }
+
+    .intro-small {
+        font-size: 0.8rem;
+
+        letter-spacing: 2px;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+    }
+
+    .photo-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
         gap: 15px;
+    }
+
+    .photo-card {
+        padding:
+            8px 8px 15px;
     }
 
     .photo-card img {
@@ -292,7 +809,11 @@ audio {
     }
 
     .message-card {
-        padding: 30px 20px;
+        padding:
+            30px 20px;
+
+        margin:
+            60px auto;
     }
 
     .message-card p {
@@ -303,16 +824,60 @@ audio {
     .message-card h2 {
         font-size: 1.5rem;
     }
+
 }
+
+
+/* =========================
+   SMALL PHONES
+========================= */
 
 @media (max-width: 450px) {
 
+    .birthday-container {
+        padding:
+            45px 8px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
     .photo-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
+    }
+
+    .photo-card {
+        width: 90%;
+
+        margin:
+            0 auto;
     }
 
     .photo-card img {
         height: 300px;
     }
-}
 
+    .message-card {
+        padding:
+            28px 18px;
+    }
+
+    .message-card p {
+        font-size: 0.95rem;
+
+        line-height: 1.7;
+    }
+
+    #surpriseButton {
+        width: 90%;
+
+        max-width: 320px;
+    }
+
+}
