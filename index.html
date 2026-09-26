@@ -1,96 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Melo</title>
+    <title>Happy Birthday Melo ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Opening Screen -->
+    <!-- OPENING SCREEN -->
     <div id="introScreen">
-        <div class="intro-content">
-            <div class="intro-gift">🎁</div>
+        <div class="introBox">
 
-            <p class="intro-small">A little something for you...</p>
+            <div class="introGift">🎁</div>
 
-            <h1 class="intro-title">For Melo ❤️</h1>
+            <p class="introSmall">
+                A little something for you...
+            </p>
 
-            <p class="intro-text">
-                Made especially for you.
+            <h1 class="introTitle">
+                For Melo ❤️
+            </h1>
+
+            <p class="introText">
+                I made something special for you.
             </p>
 
             <button id="enterButton">
                 ✨ Tap to open ✨
             </button>
+
         </div>
     </div>
 
 
-    <!-- Floating Balloons -->
+    <!-- BALLOONS -->
     <div class="balloons">
+
         <div class="balloon balloon1"></div>
         <div class="balloon balloon2"></div>
         <div class="balloon balloon3"></div>
         <div class="balloon balloon4"></div>
         <div class="balloon balloon5"></div>
+
     </div>
 
 
-    <!-- Floating Hearts -->
+    <!-- FLOATING HEARTS -->
     <div class="hearts">
+
         <span>❤️</span>
         <span>💗</span>
         <span>💕</span>
         <span>💖</span>
         <span>💗</span>
         <span>❤️</span>
+
     </div>
 
 
-    <!-- Main Birthday Website -->
-    <main class="birthday-container">
+    <!-- MAIN CONTENT -->
+    <main class="birthdayContainer">
 
-        <h1>Happy Birthday Melo ❤️</h1>
+        <h1 class="mainTitle">
+            Happy Birthday Melo ❤️
+        </h1>
 
         <p class="subtitle">
             Today is all about celebrating you, and you alone.
         </p>
 
 
-        <!-- Background Music -->
+        <!-- MUSIC -->
         <audio id="bgMusic" loop>
-            <source src="Beyonc_-_All_Night_ScaryBeatz.com.mp3" type="audio/mpeg">
+
+            <source
+                src="Beyonc_-_All_Night_ScaryBeatz.com.mp3"
+                type="audio/mpeg">
+
         </audio>
 
 
-        <!-- Photos -->
+        <!-- PHOTOS -->
         <section class="photos">
 
-            <h2>Here are some of my favourite memories of you</h2>
+            <h2>
+                Here are some of my favourite memories of you
+            </h2>
 
-            <div class="photo-grid">
+            <div class="photoGrid">
 
-                <div class="photo-card">
-                    <img src="images/melo 1.JPG" alt="Melo">
-                    <p>So beautiful ❤️</p>
+                <div class="photoCard">
+
+                    <img
+                        src="images/melo 1.JPG"
+                        alt="Melo">
+
+                    <p>
+                        So beautiful ❤️
+                    </p>
+
                 </div>
 
-                <div class="photo-card">
-                    <img src="images/melo 2.JPG" alt="Melo">
-                    <p>Bona o pila byang 🥹</p>
+
+                <div class="photoCard">
+
+                    <img
+                        src="images/melo 2.JPG"
+                        alt="Melo">
+
+                    <p>
+                        Bona o pila byang 🥹
+                    </p>
+
                 </div>
 
-                <div class="photo-card">
-                    <img src="images/melo 10.JPG" alt="Melo">
-                    <p>My favourite person 💗</p>
+
+                <div class="photoCard">
+
+                    <img
+                        src="images/melo 10.JPG"
+                        alt="Melo">
+
+                    <p>
+                        My favourite person 💗
+                    </p>
+
                 </div>
 
-                <div class="photo-card">
-                    <img src="images/melo 9.JPG" alt="Melo">
-                    <p>More memories to come ✨</p>
+
+                <div class="photoCard">
+
+                    <img
+                        src="images/melo 9.JPG"
+                        alt="Melo">
+
+                    <p>
+                        More memories to come ✨
+                    </p>
+
                 </div>
 
             </div>
@@ -98,12 +148,16 @@
         </section>
 
 
-        <!-- Birthday Message -->
-        <section class="message-card">
+        <!-- MESSAGE -->
+        <section class="messageCard">
 
-            <div class="heart-icon">♡</div>
+            <div class="heartIcon">
+                ❤️
+            </div>
 
-            <h2>A message for you</h2>
+            <h2>
+                A message for you
+            </h2>
 
             <p>
                 Happy birthday, Nonkhokheli. ❤️
@@ -129,22 +183,25 @@
             </p>
 
             <p class="signature">
-                Happy birthday, Melo. ❤️<br>
+                Happy birthday, Melo. ❤️
+                <br>
                 Here's to many more memories together.
             </p>
 
         </section>
 
 
-        <!-- Surprise -->
-        <section class="surprise-section">
+        <!-- SURPRISE -->
+        <section class="surpriseSection">
 
             <button id="surpriseButton">
                 🎁 Click for a surprise
             </button>
 
             <p id="surpriseMessage" class="hidden">
-                You deserve all the love, happiness and beautiful moments life has to offer.
+                You deserve all the love, happiness and beautiful moments
+                life has to offer.
+
                 I hope you achieve every single thing you put your mind to. ❤️
             </p>
 
@@ -153,109 +210,159 @@
     </main>
 
 
+    <!-- JAVASCRIPT -->
     <script>
 
-        // Opening screen
-        const introScreen = document.getElementById("introScreen");
-        const enterButton = document.getElementById("enterButton");
-        const music = document.getElementById("bgMusic");
+        const introScreen =
+            document.getElementById("introScreen");
+
+        const enterButton =
+            document.getElementById("enterButton");
+
+        const music =
+            document.getElementById("bgMusic");
+
+
+        // OPENING SCREEN
 
         enterButton.addEventListener("click", function () {
 
-            // Start music after user interaction
-            music.play().catch(() => {});
+            music.play().catch(function () {
+                console.log("Music could not start.");
+            });
 
-            // Fade out opening screen
-            introScreen.classList.add("intro-hidden");
+            introScreen.classList.add("hideIntro");
 
         });
 
 
-        // Surprise button
-        const surpriseButton = document.getElementById("surpriseButton");
-        const surpriseMessage = document.getElementById("surpriseMessage");
+        // SURPRISE BUTTON
+
+        const surpriseButton =
+            document.getElementById("surpriseButton");
+
+        const surpriseMessage =
+            document.getElementById("surpriseMessage");
+
 
         surpriseButton.addEventListener("click", function () {
 
-            // Show message
-            surpriseMessage.style.display = "block";
+            surpriseMessage.classList.remove("hidden");
 
-            // Change button
-            surpriseButton.innerHTML = "❤️ Surprise Unlocked ❤️";
+            surpriseButton.textContent =
+                "❤️ Surprise Unlocked ❤️";
 
-            // Prevent clicking repeatedly
             surpriseButton.disabled = true;
 
 
-            // Falling hearts
+            // HEARTS
+
             for (let i = 0; i < 25; i++) {
 
-                const heart = document.createElement("div");
+                const heart =
+                    document.createElement("div");
 
-                heart.classList.add("surprise-heart");
+                heart.className =
+                    "surpriseHeart";
 
-                const hearts = ["❤️", "💗", "💕", "💖", "💓"];
+                const heartTypes = [
+                    "❤️",
+                    "💗",
+                    "💕",
+                    "💖",
+                    "💓"
+                ];
 
-                heart.innerHTML =
-                    hearts[Math.floor(Math.random() * hearts.length)];
+                heart.textContent =
+                    heartTypes[
+                        Math.floor(
+                            Math.random() *
+                            heartTypes.length
+                        )
+                    ];
 
-                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.left =
+                    Math.random() * 100 + "vw";
 
                 heart.style.animationDuration =
-                    (3 + Math.random() * 4) + "s";
+                    (3 + Math.random() * 3) + "s";
 
                 heart.style.fontSize =
-                    (15 + Math.random() * 25) + "px";
+                    (18 + Math.random() * 20) + "px";
 
                 document.body.appendChild(heart);
 
-                setTimeout(() => {
+                setTimeout(function () {
                     heart.remove();
                 }, 7000);
 
             }
 
 
-            // Confetti
-            for (let i = 0; i < 60; i++) {
+            // CONFETTI
 
-                const confetti = document.createElement("div");
+            for (let i = 0; i < 100; i++) {
 
-                confetti.classList.add("confetti");
+                const confetti =
+                    document.createElement("div");
+
+                confetti.className =
+                    "confetti";
 
                 confetti.style.left =
                     Math.random() * 100 + "vw";
 
+                confetti.style.top =
+                    "-20px";
+
+                confetti.style.backgroundColor =
+                    getConfettiColor();
+
                 confetti.style.animationDuration =
-                    (3 + Math.random() * 4) + "s";
+                    (3 + Math.random() * 3) + "s";
 
                 confetti.style.animationDelay =
-                    Math.random() * 1.5 + "s";
-
-                confetti.style.background =
-                    [
-                        "#ff4d6d",
-                        "#ff85a1",
-                        "#ffd43b",
-                        "#cc5de8",
-                        "#4dabf7",
-                        "#69db7c"
-                    ][Math.floor(Math.random() * 6)];
+                    Math.random() * 0.8 + "s";
 
                 confetti.style.transform =
-                    `rotate(${Math.random() * 360}deg)`;
+                    "rotate(" +
+                    Math.random() * 360 +
+                    "deg)";
 
                 document.body.appendChild(confetti);
 
-                setTimeout(() => {
+                setTimeout(function () {
                     confetti.remove();
-                }, 8000);
+                }, 7000);
 
             }
 
         });
 
+
+        // CONFETTI COLORS
+
+        function getConfettiColor() {
+
+            const colors = [
+                "#ff4d6d",
+                "#ff85a1",
+                "#ffd43b",
+                "#cc5de8",
+                "#4dabf7",
+                "#69db7c"
+            ];
+
+            return colors[
+                Math.floor(
+                    Math.random() * colors.length
+                )
+            ];
+
+        }
+
     </script>
 
 </body>
+
 </html>

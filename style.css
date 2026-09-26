@@ -2,620 +2,80 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
-
+    font-family: Arial, sans-serif;
     background:
         radial-gradient(circle at top left, #fff5f8, transparent 35%),
-        linear-gradient(135deg, #ffe4ec, #ffd6e8, #f8d8ff);
-
-    font-family: Arial, sans-serif;
-    color: #4a2633;
-
+        linear-gradient(135deg, #ffd6e8, #ffeaf3, #ffd1e3);
+    color: #5a3042;
     overflow-x: hidden;
 }
 
 
-/* =========================
+/* =========================================
    OPENING SCREEN
-========================= */
+========================================= */
 
 #introScreen {
     position: fixed;
     inset: 0;
+    z-index: 9999;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background:
-        radial-gradient(circle at top, #fff5f8, transparent 40%),
-        linear-gradient(135deg, #ffd6e8, #f8d8ff);
+    padding: 20px;
 
-    z-index: 9999;
+    background:
+        radial-gradient(circle at center, rgba(255,255,255,0.95), transparent 45%),
+        linear-gradient(135deg, #ffd1e3, #ffeef5);
+
+    opacity: 1;
+    visibility: visible;
 
     transition:
-        opacity 1s ease,
-        visibility 1s ease;
+        opacity 0.8s ease,
+        visibility 0.8s ease;
 }
 
-.intro-content {
-    width: 90%;
-    max-width: 500px;
 
-    padding: 50px 30px;
-
-    text-align: center;
-
-    background: rgba(255, 255, 255, 0.65);
-
-    border: 1px solid rgba(255, 255, 255, 0.8);
-
-    border-radius: 30px;
-
-    box-shadow:
-        0 20px 60px rgba(110, 40, 70, 0.18);
-
-    backdrop-filter: blur(15px);
-
-    animation: introAppear 1.2s ease;
-}
-
-.intro-gift {
-    font-size: 4rem;
-
-    margin-bottom: 20px;
-
-    animation: giftFloat 2s ease-in-out infinite;
-}
-
-.intro-small {
-    margin: 0 0 10px;
-
-    font-size: 0.95rem;
-
-    letter-spacing: 3px;
-
-    color: #a85c78;
-
-    text-transform: uppercase;
-}
-
-.intro-title {
-    margin: 10px 0;
-
-    font-family: "Courier New", monospace;
-
-    font-size: clamp(2.5rem, 10vw, 4rem);
-
-    color: #8f3153;
-
-    text-shadow:
-        2px 2px 0 white,
-        4px 4px 15px rgba(255, 255, 255, 0.8);
-}
-
-.intro-text {
-    font-size: 1.1rem;
-
-    color: #744052;
-
-    margin: 15px 0 30px;
-}
-
-#enterButton {
-    border: none;
-
-    padding: 16px 32px;
-
-    border-radius: 50px;
-
-    background:
-        linear-gradient(135deg, #ff5c8a, #d94f78);
-
-    color: white;
-
-    font-size: 1rem;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 10px 25px rgba(190, 60, 100, 0.3);
-
-    transition: all 0.3s ease;
-}
-
-#enterButton:hover {
-    transform: translateY(-4px) scale(1.04);
-
-    box-shadow:
-        0 15px 30px rgba(190, 60, 100, 0.4);
-}
-
-#enterButton:active {
-    transform: scale(0.96);
-}
-
-.intro-hidden {
+/* This is the class your JavaScript adds */
+#introScreen.hideIntro {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 }
 
 
-/* =========================
-   MAIN CONTAINER
-========================= */
+.introBox {
+    width: min(90%, 500px);
 
-.birthday-container {
-    position: relative;
-
-    z-index: 2;
-
-    width: 90%;
-
-    max-width: 1000px;
-
-    margin: 0 auto;
-
-    padding: 70px 20px;
+    padding: 45px 30px;
 
     text-align: center;
-}
 
-.small-text {
-    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.8);
 
-    letter-spacing: 3px;
-
-    color: #a85c78;
-
-    margin-bottom: 10px;
-}
-
-h1 {
-    margin: 0;
-
-    font-family: "Courier New", monospace;
-
-    font-size: clamp(2.5rem, 7vw, 5rem);
-
-    color: #8f3153;
-
-    text-shadow:
-        2px 2px 0 white,
-        4px 4px 15px rgba(255, 255, 255, 0.8);
-
-    animation: titleGlow 3s ease-in-out infinite;
-}
-
-.subtitle {
-    font-size: 1.2rem;
-
-    margin-top: 15px;
-
-    color: #744052;
-}
-
-
-/* =========================
-   MUSIC
-========================= */
-
-audio {
-    display: block;
-
-    width: 280px;
-
-    max-width: 90%;
-
-    margin: 30px auto;
+    border: 1px solid rgba(255, 255, 255, 0.9);
 
     border-radius: 30px;
-}
-
-
-/* =========================
-   PHOTOS
-========================= */
-
-.photos {
-    margin-top: 70px;
-}
-
-.photos h2,
-.message-card h2 {
-    font-family: "Courier New", monospace;
-
-    color: #8f3153;
-
-    font-size: 2rem;
-}
-
-.photo-grid {
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 25px;
-
-    margin-top: 30px;
-}
-
-.photo-card {
-    background: white;
-
-    padding: 10px 10px 20px;
-
-    border-radius: 12px;
 
     box-shadow:
-        0 10px 25px rgba(120, 50, 80, 0.15);
-
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
-}
-
-.photo-card:nth-child(odd) {
-    transform: rotate(-3deg);
-}
-
-.photo-card:nth-child(even) {
-    transform: rotate(3deg);
-}
-
-.photo-card:hover {
-    transform:
-        translateY(-10px)
-        rotate(0deg)
-        scale(1.02);
-
-    box-shadow:
-        0 20px 35px rgba(120, 50, 80, 0.22);
-}
-
-.photo-card img {
-    width: 100%;
-
-    height: 230px;
-
-    object-fit: cover;
-
-    border-radius: 7px;
-
-    display: block;
-}
-
-.photo-card p {
-    margin: 15px 5px 0;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 0.9rem;
-
-    color: #754052;
-}
-
-
-/* =========================
-   MESSAGE CARD
-========================= */
-
-.message-card {
-    max-width: 750px;
-
-    margin: 80px auto;
-
-    padding: 45px 40px;
-
-    background:
-        rgba(255, 255, 255, 0.72);
-
-    border:
-        1px solid rgba(255, 255, 255, 0.8);
-
-    border-radius: 25px;
-
-    box-shadow:
-        0 20px 50px rgba(110, 40, 70, 0.15);
+        0 20px 60px rgba(190, 70, 120, 0.2),
+        0 0 40px rgba(255, 255, 255, 0.8);
 
     backdrop-filter: blur(10px);
+
+    animation: introAppear 1s ease;
 }
 
-.heart-icon {
-    font-size: 3rem;
-
-    color: #d94f78;
-
-    animation:
-        heartbeat 1.5s infinite;
-}
-
-.message-card p {
-    font-size: 1.05rem;
-
-    line-height: 1.8;
-}
-
-.signature {
-    margin-top: 30px;
-
-    font-family: "Courier New", monospace;
-
-    color: #8f3153;
-}
-
-
-/* =========================
-   SURPRISE
-========================= */
-
-.surprise-section {
-    margin: 70px 0;
-}
-
-#surpriseButton {
-    border: none;
-
-    padding: 16px 30px;
-
-    border-radius: 50px;
-
-    background:
-        linear-gradient(135deg, #ff5c8a, #d94f78);
-
-    color: white;
-
-    font-size: 1rem;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 10px 25px rgba(190, 60, 100, 0.3);
-
-    transition:
-        all 0.3s ease;
-}
-
-#surpriseButton:hover {
-    transform:
-        translateY(-4px)
-        scale(1.03);
-
-    box-shadow:
-        0 15px 30px rgba(190, 60, 100, 0.4);
-}
-
-#surpriseButton:disabled {
-    cursor: default;
-}
-
-#surpriseMessage {
-    margin-top: 25px;
-
-    font-size: 1.3rem;
-
-    color: #8f3153;
-
-    animation:
-        fadeIn 1s ease;
-}
-
-.hidden {
-    display: none;
-}
-
-
-/* =========================
-   BALLOONS
-========================= */
-
-.balloons {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    overflow: hidden;
-
-    pointer-events: none;
-
-    z-index: 1;
-}
-
-.balloon {
-    position: absolute;
-
-    bottom: -150px;
-
-    width: 60px;
-    height: 80px;
-
-    border-radius: 50%;
-
-    animation:
-        float 12s infinite ease-in;
-}
-
-.balloon::before {
-    content: "";
-
-    position: absolute;
-
-    bottom: -5px;
-    left: 50%;
-
-    width: 0;
-    height: 0;
-
-    transform: translateX(-50%);
-
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 10px solid currentColor;
-}
-
-.balloon::after {
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-    top: 80px;
-
-    width: 2px;
-    height: 80px;
-
-    background: #555;
-}
-
-.balloon1 {
-    left: 10%;
-
-    background: #ff4d6d;
-
-    animation-duration: 10s;
-}
-
-.balloon2 {
-    left: 30%;
-
-    background: #4dabf7;
-
-    animation-duration: 12s;
-
-    animation-delay: 2s;
-}
-
-.balloon3 {
-    left: 50%;
-
-    background: #ffd43b;
-
-    animation-duration: 9s;
-
-    animation-delay: 1s;
-}
-
-.balloon4 {
-    left: 70%;
-
-    background: #69db7c;
-
-    animation-duration: 11s;
-
-    animation-delay: 3s;
-}
-
-.balloon5 {
-    left: 90%;
-
-    background: #cc5de8;
-
-    animation-duration: 13s;
-
-    animation-delay: 2s;
-}
-
-
-/* =========================
-   FLOATING HEARTS
-========================= */
-
-.hearts span {
-    position: fixed;
-
-    bottom: -50px;
-
-    font-size: 25px;
-
-    animation:
-        hearts 10s linear infinite;
-
-    opacity: 0.7;
-
-    z-index: 1;
-
-    pointer-events: none;
-}
-
-.hearts span:nth-child(1) {
-    left: 15%;
-    animation-delay: 1s;
-}
-
-.hearts span:nth-child(2) {
-    left: 30%;
-    animation-delay: 4s;
-}
-
-.hearts span:nth-child(3) {
-    left: 45%;
-    animation-delay: 2s;
-}
-
-.hearts span:nth-child(4) {
-    left: 60%;
-    animation-delay: 6s;
-}
-
-.hearts span:nth-child(5) {
-    left: 75%;
-    animation-delay: 3s;
-}
-
-.hearts span:nth-child(6) {
-    left: 90%;
-    animation-delay: 7s;
-}
-
-
-/* =========================
-   SURPRISE ANIMATIONS
-========================= */
-
-.surprise-heart {
-    position: fixed;
-
-    top: -50px;
-
-    z-index: 9998;
-
-    pointer-events: none;
-
-    animation:
-        surpriseFall linear forwards;
-}
-
-.confetti {
-    position: fixed;
-
-    top: -20px;
-
-    width: 8px;
-    height: 14px;
-
-    z-index: 9998;
-
-    pointer-events: none;
-
-    animation:
-        surpriseFall linear forwards;
-}
-
-
-/* =========================
-   ANIMATIONS
-========================= */
 
 @keyframes introAppear {
 
@@ -631,59 +91,711 @@ audio {
 
 }
 
-@keyframes giftFloat {
 
-    0%, 100% {
-        transform: translateY(0) rotate(-3deg);
+.introGift {
+    font-size: 4rem;
+
+    margin-bottom: 15px;
+
+    animation: giftBounce 2s ease-in-out infinite;
+}
+
+
+@keyframes giftBounce {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
     }
 
     50% {
-        transform: translateY(-10px) rotate(3deg);
+        transform: translateY(-10px) rotate(5deg);
     }
 
 }
 
-@keyframes float {
+
+.introSmall {
+    margin: 0 0 10px;
+
+    color: #b84d79;
+
+    font-size: 1rem;
+}
+
+
+.introTitle {
+    margin: 5px 0 15px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: clamp(2.3rem, 8vw, 4rem);
+
+    color: #ff4f91;
+
+    text-shadow:
+        0 3px 10px rgba(255, 79, 145, 0.2);
+}
+
+
+.introText {
+    margin: 0 0 30px;
+
+    color: #795061;
+
+    font-size: 1.05rem;
+}
+
+
+#enterButton {
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #ff4f91,
+        #ff82b3
+    );
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(255, 79, 145, 0.3);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+#enterButton:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow:
+        0 15px 30px rgba(255, 79, 145, 0.4);
+}
+
+
+#enterButton:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.birthdayContainer {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 70px 20px 100px;
+
+    text-align: center;
+}
+
+
+.mainTitle {
+    margin: 0 0 12px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: clamp(2.2rem, 7vw, 4.5rem);
+
+    color: white;
+
+    text-shadow:
+        0 3px 10px rgba(255, 90, 150, 0.5),
+        0 0 20px rgba(255, 255, 255, 0.8);
+
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+
+@keyframes titleGlow {
+
+    0%,
+    100% {
+        text-shadow:
+            0 3px 10px rgba(255, 90, 150, 0.5),
+            0 0 20px rgba(255, 255, 255, 0.8);
+    }
+
+    50% {
+        text-shadow:
+            0 3px 15px rgba(255, 90, 150, 0.8),
+            0 0 30px rgba(255, 255, 255, 1);
+    }
+
+}
+
+
+.subtitle {
+    margin: 0 auto 25px;
+
+    max-width: 600px;
+
+    color: #8b4d66;
+
+    font-size: 1.05rem;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   AUDIO
+========================================= */
+
+audio {
+    display: block;
+
+    width: min(90%, 400px);
+
+    margin: 20px auto 45px;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+/* =========================================
+   BALLOONS
+========================================= */
+
+.balloons {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+.balloon {
+    position: absolute;
+
+    bottom: -150px;
+
+    width: 60px;
+    height: 80px;
+
+    border-radius: 50%;
+
+    opacity: 0.75;
+
+    animation:
+        floatBalloon 10s linear infinite;
+}
+
+
+.balloon::before {
+    content: "";
+
+    position: absolute;
+
+    bottom: -7px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+
+    border-top: 10px solid currentColor;
+}
+
+
+.balloon::after {
+    content: "";
+
+    position: absolute;
+
+    top: 78px;
+
+    left: 50%;
+
+    width: 1px;
+    height: 130px;
+
+    background: rgba(80, 80, 80, 0.3);
+}
+
+
+.balloon1 {
+    left: 5%;
+
+    background: #ff6fae;
+    color: #ff6fae;
+
+    animation-delay: 0s;
+}
+
+
+.balloon2 {
+    left: 25%;
+
+    background: #ffb6d5;
+    color: #ffb6d5;
+
+    animation-delay: 2s;
+}
+
+
+.balloon3 {
+    left: 48%;
+
+    background: #ff8fc4;
+    color: #ff8fc4;
+
+    animation-delay: 4s;
+}
+
+
+.balloon4 {
+    left: 70%;
+
+    background: #ffc1dc;
+    color: #ffc1dc;
+
+    animation-delay: 1s;
+}
+
+
+.balloon5 {
+    left: 90%;
+
+    background: #ff5f9e;
+    color: #ff5f9e;
+
+    animation-delay: 3s;
+}
+
+
+@keyframes floatBalloon {
 
     0% {
         transform:
             translateY(0)
-            translateX(0);
-
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
+            rotate(0deg);
     }
 
     50% {
         transform:
             translateY(-50vh)
-            translateX(20px);
+            rotate(8deg);
     }
 
     100% {
         transform:
             translateY(-120vh)
-            translateX(-20px);
+            rotate(-8deg);
+    }
+
+}
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+.hearts {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+.hearts span {
+    position: absolute;
+
+    bottom: -50px;
+
+    font-size: 25px;
+
+    opacity: 0.65;
+
+    animation: floatHeart 10s linear infinite;
+}
+
+
+.hearts span:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+
+.hearts span:nth-child(2) {
+    left: 25%;
+    animation-delay: 2s;
+}
+
+
+.hearts span:nth-child(3) {
+    left: 45%;
+    animation-delay: 4s;
+}
+
+
+.hearts span:nth-child(4) {
+    left: 65%;
+    animation-delay: 1s;
+}
+
+
+.hearts span:nth-child(5) {
+    left: 80%;
+    animation-delay: 3s;
+}
+
+
+.hearts span:nth-child(6) {
+    left: 92%;
+    animation-delay: 5s;
+}
+
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(0.8);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            scale(1.2);
 
         opacity: 0;
     }
 
 }
 
-@keyframes hearts {
+
+/* =========================================
+   PHOTOS
+========================================= */
+
+.photos {
+    position: relative;
+
+    z-index: 5;
+
+    margin-top: 20px;
+}
+
+
+.photos h2 {
+    margin-bottom: 25px;
+
+    color: #9d4169;
+
+    font-size: clamp(1.3rem, 4vw, 2rem);
+}
+
+
+.photoGrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
+
+.photoCard {
+    background: rgba(255, 255, 255, 0.85);
+
+    padding: 12px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 12px 30px rgba(180, 70, 110, 0.15);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.photoCard:hover {
+    transform: translateY(-8px) rotate(1deg);
+
+    box-shadow:
+        0 18px 35px rgba(180, 70, 110, 0.25);
+}
+
+
+.photoCard img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+}
+
+
+.photoCard p {
+    margin: 12px 5px 5px;
+
+    color: #8d4b66;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   MESSAGE CARD
+========================================= */
+
+.messageCard {
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 800px;
+
+    margin: 60px auto 0;
+
+    padding: 35px;
+
+    text-align: left;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 40px rgba(180, 70, 110, 0.15);
+
+    line-height: 1.8;
+}
+
+
+.heartIcon {
+    text-align: center;
+
+    font-size: 2.5rem;
+
+    margin-bottom: 5px;
+}
+
+
+.messageCard h2 {
+    text-align: center;
+
+    margin-top: 0;
+
+    color: #c24675;
+}
+
+
+.messageCard p {
+    color: #684456;
+
+    font-size: 1rem;
+}
+
+
+.messageCard .signature {
+    text-align: center;
+
+    color: #b83e6e;
+
+    font-weight: bold;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================
+   SURPRISE SECTION
+========================================= */
+
+.surpriseSection {
+    position: relative;
+
+    z-index: 10;
+
+    margin: 50px auto 0;
+
+    text-align: center;
+}
+
+
+#surpriseButton {
+    border: none;
+
+    padding: 16px 28px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #ff4d88,
+        #ff82b3
+    );
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(255, 77, 136, 0.3);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+#surpriseButton:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 30px rgba(255, 77, 136, 0.4);
+}
+
+
+#surpriseButton:disabled {
+    cursor: default;
+
+    opacity: 0.9;
+}
+
+
+#surpriseMessage {
+    max-width: 600px;
+
+    margin: 25px auto;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    color: #7a4058;
+
+    line-height: 1.7;
+
+    box-shadow:
+        0 10px 30px rgba(180, 70, 110, 0.15);
+
+    animation: surpriseAppear 0.6s ease;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+@keyframes surpriseAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================
+   SURPRISE HEARTS
+========================================= */
+
+.surpriseHeart {
+    position: fixed;
+
+    bottom: -50px;
+
+    z-index: 9998;
+
+    pointer-events: none;
+
+    animation:
+        surpriseHeartFloat
+        5s linear forwards;
+}
+
+
+@keyframes surpriseHeartFloat {
 
     0% {
         transform:
             translateY(0)
             rotate(0deg);
 
-        opacity: 0;
-    }
-
-    10% {
         opacity: 1;
     }
 
@@ -697,54 +809,39 @@ audio {
 
 }
 
-@keyframes heartbeat {
 
-    0%, 100% {
-        transform: scale(1);
-    }
+/* =========================================
+   CONFETTI
+========================================= */
 
-    50% {
-        transform: scale(1.2);
-    }
+.confetti {
+    position: fixed;
 
+    top: -20px;
+
+    width: 10px;
+    height: 18px;
+
+    z-index: 9997;
+
+    pointer-events: none;
+
+    border-radius: 2px;
+
+    animation:
+        confettiFall
+        4s linear forwards;
 }
 
-@keyframes titleGlow {
 
-    0%, 100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.02);
-    }
-
-}
-
-@keyframes fadeIn {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
-}
-
-@keyframes surpriseFall {
+@keyframes confettiFall {
 
     0% {
         transform:
-            translateY(-50px)
+            translateY(-20px)
             rotate(0deg);
+
+        opacity: 1;
     }
 
     100% {
@@ -758,126 +855,179 @@ audio {
 }
 
 
-/* =========================
-   TABLET / MOBILE
-========================= */
+/* =========================================
+   MOBILE — IPHONE 13
+========================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 
-    .birthday-container {
-        width: 94%;
-
-        padding:
-            50px 10px;
+    body {
+        min-height: 100svh;
     }
 
-    .intro-content {
-        width: 90%;
 
-        padding:
-            40px 20px;
+    #introScreen {
+        min-height: 100svh;
+
+        padding: 15px;
     }
 
-    .intro-gift {
+
+    .introBox {
+        width: 92%;
+
+        padding: 35px 20px;
+
+        border-radius: 25px;
+    }
+
+
+    .introGift {
         font-size: 3.5rem;
     }
 
-    .intro-small {
-        font-size: 0.8rem;
 
-        letter-spacing: 2px;
+    .introTitle {
+        font-size: 2.4rem;
     }
 
-    .intro-text {
-        font-size: 1rem;
-    }
 
-    .photo-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-
-        gap: 15px;
-    }
-
-    .photo-card {
-        padding:
-            8px 8px 15px;
-    }
-
-    .photo-card img {
-        height: 180px;
-    }
-
-    .message-card {
-        padding:
-            30px 20px;
-
-        margin:
-            60px auto;
-    }
-
-    .message-card p {
+    .introText {
         font-size: 0.95rem;
+
+        margin-bottom: 25px;
     }
 
-    .photos h2,
-    .message-card h2 {
-        font-size: 1.5rem;
-    }
 
-}
-
-
-/* =========================
-   SMALL PHONES
-========================= */
-
-@media (max-width: 450px) {
-
-    .birthday-container {
-        padding:
-            45px 8px;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    .subtitle {
-        font-size: 1rem;
-    }
-
-    .photo-grid {
-        grid-template-columns:
-            1fr;
-    }
-
-    .photo-card {
+    #enterButton {
         width: 90%;
 
-        margin:
-            0 auto;
+        max-width: 280px;
+
+        padding: 14px 20px;
     }
 
-    .photo-card img {
-        height: 300px;
-    }
 
-    .message-card {
+    .birthdayContainer {
         padding:
-            28px 18px;
+            50px 15px 80px;
     }
 
-    .message-card p {
+
+    .mainTitle {
+        font-size: 2.4rem;
+
+        line-height: 1.15;
+    }
+
+
+    .subtitle {
+        font-size: 0.95rem;
+
+        padding: 0 10px;
+    }
+
+
+    audio {
+        width: 95%;
+
+        margin:
+            20px auto 40px;
+    }
+
+
+    .photoGrid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        max-width: 450px;
+    }
+
+
+    .photoCard {
+        padding: 10px;
+    }
+
+
+    .messageCard {
+        margin-top: 40px;
+
+        padding: 25px 20px;
+
+        border-radius: 20px;
+    }
+
+
+    .messageCard p {
         font-size: 0.95rem;
 
         line-height: 1.7;
     }
 
+
+    .surpriseSection {
+        margin-top: 40px;
+    }
+
+
     #surpriseButton {
         width: 90%;
 
         max-width: 320px;
+    }
+
+
+    #surpriseMessage {
+        font-size: 0.95rem;
+
+        padding: 20px;
+    }
+
+
+    .balloon {
+        width: 45px;
+        height: 62px;
+    }
+
+
+    .balloon::after {
+        top: 60px;
+    }
+
+
+    .hearts span {
+        font-size: 20px;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+    .introTitle {
+        font-size: 2rem;
+    }
+
+
+    .mainTitle {
+        font-size: 2rem;
+    }
+
+
+    .introBox {
+        padding:
+            30px 15px;
+    }
+
+
+    .messageCard {
+        padding:
+            20px 15px;
     }
 
 }
