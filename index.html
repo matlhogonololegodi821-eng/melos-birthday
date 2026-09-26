@@ -6,7 +6,30 @@
     <title>Happy Birthday Melo</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <!-- Opening Screen -->
+    <div id="introScreen">
+        <div class="intro-content">
+            <div class="intro-gift">🎁</div>
+
+            <p class="intro-small">A little something for you...</p>
+
+            <h1 class="intro-title">For Melo ❤️</h1>
+
+            <p class="intro-text">
+                Made especially for you.
+            </p>
+
+            <button id="enterButton">
+                ✨ Tap to open ✨
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Floating Balloons -->
     <div class="balloons">
         <div class="balloon balloon1"></div>
         <div class="balloon balloon2"></div>
@@ -15,6 +38,8 @@
         <div class="balloon balloon5"></div>
     </div>
 
+
+    <!-- Floating Hearts -->
     <div class="hearts">
         <span>❤️</span>
         <span>💗</span>
@@ -23,177 +48,214 @@
         <span>💗</span>
         <span>❤️</span>
     </div>
-    <main class="birthday-container">
-        <h1>Happy Birthday Melo ❤️</h1>
 
+
+    <!-- Main Birthday Website -->
+    <main class="birthday-container">
+
+        <h1>Happy Birthday Melo ❤️</h1>
 
         <p class="subtitle">
             Today is all about celebrating you, and you alone.
         </p>
-        
-        <audio id="bgMusic" autoplay loop>
-          <source src="Beyonc_-_All_Night_ScaryBeatz.com.mp3" type="audio/mpeg">
-        </audio> 
-    <section class="photos">
-        <h2>Here are some of my favourite memories of you</h2>
 
-        <div class="photo-grid">
 
-          <div class="photo-card">
-           <img src="images/melo 1.JPG" alt="Melo">
-           <p>So beautiful ❤️</p>
+        <!-- Background Music -->
+        <audio id="bgMusic" loop>
+            <source src="Beyonc_-_All_Night_ScaryBeatz.com.mp3" type="audio/mpeg">
+        </audio>
 
-        </div>
 
-        <div class="photo-card">
-            <img src="images/melo 2.JPG" alt="Melo">
-            <p>Bona o pila byang 🥹</p>
-        </div>
-        <div class="photo-card"> 
-            <img src="images/melo 10.JPG" alt="Melo"> 
-            <p>My favourite person 💗</p> 
-        </div>
-        <div class="photo-card"> 
-            <img src="images/melo 9.JPG" alt="Melo"> 
-            <p>More memories to come ✨</p> 
-        </div> 
-        
-        </div>
-    </section>
+        <!-- Photos -->
+        <section class="photos">
 
-    <section class="message-card">
-        <div class="heart-icon">♡</div>
+            <h2>Here are some of my favourite memories of you</h2>
 
-        <h2>A message for you</h2>
+            <div class="photo-grid">
 
-        <p>
-            Happy birthday, Nonkhokheli. ❤️
-        </p>
+                <div class="photo-card">
+                    <img src="images/melo 1.JPG" alt="Melo">
+                    <p>So beautiful ❤️</p>
+                </div>
 
-        <p>
-         I hope today reminds you just how special you are and how much you mean to the people around you. 
-         I'm grateful for every memory we've created, every laugh we've shared, and every moment we've spent together.
-         Don't eveer let anyone diminish your light, you're destined for greatness, ntshepe!   
-        </p>
+                <div class="photo-card">
+                    <img src="images/melo 2.JPG" alt="Melo">
+                    <p>Bona o pila byang 🥹</p>
+                </div>
 
-        <p>
-         Six months might not sound like a lifetime, but in those months you've become such an important part of my life. 
-         I appreciate you, I appreciate us, and I look forward to creating so many more memories with you.
-        </p>
+                <div class="photo-card">
+                    <img src="images/melo 10.JPG" alt="Melo">
+                    <p>My favourite person 💗</p>
+                </div>
 
-        <p>
-         I hope this new chapter brings you happiness, growth, beautiful opportunities and everything you've been wishing for.
-        
-        </p>
+                <div class="photo-card">
+                    <img src="images/melo 9.JPG" alt="Melo">
+                    <p>More memories to come ✨</p>
+                </div>
 
-        <p class="signature"> 
-            Happy birthday, Melo. ❤️<br> Here's to many more memories together. 
-        </p>
+            </div>
 
-    </section>
+        </section>
 
-    <section class="surprise-section">
-        <button id="surpriseButton">
-           🎁 Click for a surprise 
-        </button id="surpriseButton">
 
-        <p id="surpriseMessage" class="hidden"> 
-            You deserve all the love, happiness and beautiful moments life has to offer. 
-            I hope you achieve every single thing you put your mind to. ❤️ 
-        </p>
+        <!-- Birthday Message -->
+        <section class="message-card">
 
-    </section>
+            <div class="heart-icon">♡</div>
+
+            <h2>A message for you</h2>
+
+            <p>
+                Happy birthday, Nonkhokheli. ❤️
+            </p>
+
+            <p>
+                I hope today reminds you just how special you are and how much you mean
+                to the people around you. I'm grateful for every memory we've created,
+                every laugh we've shared, and every moment we've spent together.
+                Don't ever let anyone diminish your light, you're destined for greatness,
+                ntshepe!
+            </p>
+
+            <p>
+                Six months might not sound like a lifetime, but in those months you've
+                become such an important part of my life. I appreciate you, I appreciate
+                us, and I look forward to creating so many more memories with you.
+            </p>
+
+            <p>
+                I hope this new chapter brings you happiness, growth, beautiful
+                opportunities and everything you've been wishing for.
+            </p>
+
+            <p class="signature">
+                Happy birthday, Melo. ❤️<br>
+                Here's to many more memories together.
+            </p>
+
+        </section>
+
+
+        <!-- Surprise -->
+        <section class="surprise-section">
+
+            <button id="surpriseButton">
+                🎁 Click for a surprise
+            </button>
+
+            <p id="surpriseMessage" class="hidden">
+                You deserve all the love, happiness and beautiful moments life has to offer.
+                I hope you achieve every single thing you put your mind to. ❤️
+            </p>
+
+        </section>
 
     </main>
-    
-   
-    
+
+
     <script>
-const music = document.getElementById("bgMusic");
 
-document.addEventListener("click", () => {
-    music.play().catch(() => {});
-}, { once: true });
+        // Opening screen
+        const introScreen = document.getElementById("introScreen");
+        const enterButton = document.getElementById("enterButton");
+        const music = document.getElementById("bgMusic");
 
-// Surprise button
-const surpriseButton = document.getElementById("surpriseButton");
-const surpriseMessage = document.getElementById("surpriseMessage");
+        enterButton.addEventListener("click", function () {
 
-surpriseButton.addEventListener("click", function () {
+            // Start music after user interaction
+            music.play().catch(() => {});
 
-        // Show message
-        surpriseMessage.style.display = "block";
+            // Fade out opening screen
+            introScreen.classList.add("intro-hidden");
 
-        // Change button
-        surpriseButton.innerHTML = "❤️ Surprise Unlocked ❤️";
+        });
 
-        // Prevent clicking repeatedly
-        surpriseButton.disabled = true;
 
-        // Create falling hearts
-        for (let i = 0; i < 25; i++) {
+        // Surprise button
+        const surpriseButton = document.getElementById("surpriseButton");
+        const surpriseMessage = document.getElementById("surpriseMessage");
 
-            const heart = document.createElement("div");
+        surpriseButton.addEventListener("click", function () {
 
-            heart.classList.add("surprise-heart");
+            // Show message
+            surpriseMessage.style.display = "block";
 
-            const hearts = ["❤️", "💗", "💕", "💖", "💓"];
+            // Change button
+            surpriseButton.innerHTML = "❤️ Surprise Unlocked ❤️";
 
-            heart.innerHTML =
-                hearts[Math.floor(Math.random() * hearts.length)];
+            // Prevent clicking repeatedly
+            surpriseButton.disabled = true;
 
-            heart.style.left = Math.random() * 100 + "vw";
 
-            heart.style.animationDuration =
-                (3 + Math.random() * 4) + "s";
+            // Falling hearts
+            for (let i = 0; i < 25; i++) {
 
-            heart.style.fontSize =
-                (15 + Math.random() * 25) + "px";
+                const heart = document.createElement("div");
 
-            document.body.appendChild(heart);
+                heart.classList.add("surprise-heart");
 
-            setTimeout(() => {
-                heart.remove();
-            }, 7000);
-        }
-         for (let i = 0; i < 60; i++) {
+                const hearts = ["❤️", "💗", "💕", "💖", "💓"];
 
-            const confetti = document.createElement("div");
+                heart.innerHTML =
+                    hearts[Math.floor(Math.random() * hearts.length)];
 
-            confetti.classList.add("confetti");
+                heart.style.left = Math.random() * 100 + "vw";
 
-            confetti.style.left =
-                Math.random() * 100 + "vw";
+                heart.style.animationDuration =
+                    (3 + Math.random() * 4) + "s";
 
-            confetti.style.animationDuration =
-                (3 + Math.random() * 4) + "s";
+                heart.style.fontSize =
+                    (15 + Math.random() * 25) + "px";
 
-            confetti.style.animationDelay =
-                Math.random() * 1.5 + "s";
+                document.body.appendChild(heart);
 
-            confetti.style.background =
-                [
-                    "#ff4d6d",
-                    "#ff85a1",
-                    "#ffd43b",
-                    "#cc5de8",
-                    "#4dabf7",
-                    "#69db7c"
-                ][Math.floor(Math.random() * 6)];
+                setTimeout(() => {
+                    heart.remove();
+                }, 7000);
 
-            confetti.style.transform =
-                `rotate(${Math.random() * 360}deg)`;
+            }
 
-            document.body.appendChild(confetti);
 
-            setTimeout(() => {
-                confetti.remove();
-            }, 8000);
-        }
+            // Confetti
+            for (let i = 0; i < 60; i++) {
 
-    });
+                const confetti = document.createElement("div");
 
-</script>
+                confetti.classList.add("confetti");
+
+                confetti.style.left =
+                    Math.random() * 100 + "vw";
+
+                confetti.style.animationDuration =
+                    (3 + Math.random() * 4) + "s";
+
+                confetti.style.animationDelay =
+                    Math.random() * 1.5 + "s";
+
+                confetti.style.background =
+                    [
+                        "#ff4d6d",
+                        "#ff85a1",
+                        "#ffd43b",
+                        "#cc5de8",
+                        "#4dabf7",
+                        "#69db7c"
+                    ][Math.floor(Math.random() * 6)];
+
+                confetti.style.transform =
+                    `rotate(${Math.random() * 360}deg)`;
+
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 8000);
+
+            }
+
+        });
+
+    </script>
 
 </body>
 </html>
